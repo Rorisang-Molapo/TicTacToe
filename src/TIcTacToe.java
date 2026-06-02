@@ -12,17 +12,16 @@ public class TIcTacToe implements ActionListener {
     JButton[] buttons = new JButton[9];
     boolean player2_turn;
 
-
     TIcTacToe(){
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1000,1000);
         frame.getContentPane().setBackground(new Color(20,20,20));
         frame.setLayout(new BorderLayout());
-        frame.setVisible(true);
+
 
         textfield.setBackground(new Color(239, 223, 223));
         textfield.setForeground(new Color(69, 81, 67));
-        textfield.setFont(new Font("int free",Font.BOLD,75));
+        textfield.setFont(new Font("Ink Free",Font.BOLD,75));
         textfield.setHorizontalAlignment(JLabel.CENTER);
         textfield.setText("Molapo's TicTacToe");
         textfield.setOpaque(true);
@@ -39,54 +38,65 @@ public class TIcTacToe implements ActionListener {
             buttons[i].setFont(new Font("arial",Font.BOLD,100));
             buttons[i].setFocusable(false);
             buttons[i].addActionListener(this);
-
+            buttons[i].setText("");
         }
-
-
 
         title_panel.add(textfield);
         frame.add(title_panel,BorderLayout.NORTH);
         frame.add(button_panel);
 
+
+        frame.setVisible(true);
+
         turn();
-
-
-
     }
-
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
-    }
-    public void turn(){
-        // for code to show title before it assigns turns
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        for(int i=0;i<9;i++){
+            if(e.getSource()==buttons[i]){
+                if(player2_turn){
+                    if(buttons[i].getText().equals("")){
+                        buttons[i].setForeground(new Color(255,0,0));
+                        buttons[i].setText("o");
+                        player2_turn = false;
+                        textfield.setText("x turn");
+                    }
+                }
+                else{
+                    if(buttons[i].getText().equals("")){
+                        buttons[i].setForeground(new Color(0,0,255));
+                        buttons[i].setText("x");
+                        player2_turn = true;
+                        textfield.setText("o turn");
+                        checkwinner();
+                    }
+                }
+            }
         }
+    }
 
-
+    public void turn(){
         if(random.nextInt(2)==0){
             player2_turn= true;
             textfield.setText("o turn");
-
         }
         else{
             player2_turn= false;
             textfield.setText("x turn");
         }
-
     }
 
     public void checkwinner(){
 
     }
+
     public void xWins(int a, int b, int c){
 
     }
+
     public void oWins(int a, int b, int c){
 
     }
+
 }
