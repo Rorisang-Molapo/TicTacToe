@@ -88,6 +88,80 @@ public class TIcTacToe implements ActionListener {
     }
 
     public void checkwinner(){
+        if(
+                (buttons[0].getText()== "x")&&
+                (buttons[1].getText()== "x")&&
+                (buttons[2].getText()== "x")
+
+        ){
+            xWins(0,1,2);
+        }
+
+        if(
+                (buttons[3].getText()== "x")&&
+                        (buttons[4].getText()== "x")&&
+                        (buttons[5].getText()== "x")
+
+        ){
+            xWins(3,4,5);
+        }
+
+        if(
+                (buttons[6].getText()== "x")&&
+                        (buttons[7].getText()== "x")&&
+                        (buttons[8].getText()== "x")
+
+        ){
+            xWins(6,7,8);
+        }
+
+        if(
+                (buttons[0].getText()== "x")&&
+                        (buttons[3].getText()== "x")&&
+                        (buttons[6].getText()== "x")
+
+        ){
+            xWins(0,3,6);
+        }
+
+        if(
+                (buttons[1].getText()== "x")&&
+                        (buttons[4].getText()== "x")&&
+                        (buttons[7].getText()== "x")
+
+        ){
+            xWins(1,4,7);
+        }
+
+        if(
+                (buttons[2].getText()== "x")&&
+                        (buttons[5].getText()== "x")&&
+                        (buttons[8].getText()== "x")
+
+        ){
+            xWins(2,5,8);
+        }
+
+        if(
+                (buttons[0].getText()== "x")&&
+                        (buttons[4].getText()== "x")&&
+                        (buttons[8].getText()== "x")
+
+        ){
+            xWins(0,4,8);
+        }
+
+
+        if(
+                (buttons[2].getText()== "x")&&
+                        (buttons[4].getText()== "x")&&
+                        (buttons[6].getText()== "x")
+
+        ){
+            xWins(2,4,6);
+        }
+
+
 
     }
 
