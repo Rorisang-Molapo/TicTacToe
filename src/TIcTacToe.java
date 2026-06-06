@@ -13,6 +13,10 @@ public class TIcTacToe implements ActionListener {
     boolean player2_turn;
 
     TIcTacToe(){
+// remeber we used null as parent component argu because the game has not yet launched.
+        // dialog pane before game shows.
+        JOptionPane.showMessageDialog(null, "welcome players", "Game launch",
+                JOptionPane.INFORMATION_MESSAGE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1000,1000);
         frame.getContentPane().setBackground(new Color(20,20,20));
@@ -254,14 +258,16 @@ public class TIcTacToe implements ActionListener {
 
     public void oWins(int a, int b, int c){
 
-        buttons[a].setBackground(Color.BLUE);
-        buttons[b].setBackground(Color.BLUE);
-        buttons[c].setBackground(Color.BLUE);
+        buttons[a].setBackground(Color.RED);
+        buttons[b].setBackground(Color.RED);
+        buttons[c].setBackground(Color.RED);
         for(int i=0;i<9;i++){
             buttons[i].setEnabled(false);
         }
         textfield.setText("o wins");
 
+
     }
+
 
 }
